@@ -42,8 +42,8 @@ export default function DonationCard({ campaign, recommendation, etaDays }) {
           {campaign.name}
         </Typography>
         <Box sx={{ mt: 1, flexGrow: 0 }}>
-          <Typography variant="body2">Мета: {campaign.goal.toLocaleString()}₴</Typography>
-          <Typography variant="body2">Зібрано: {campaign.saved.toLocaleString()}₴</Typography>
+          <Typography variant="body2">Мета: {(campaign.goal ?? 0).toLocaleString()}₴</Typography>
+          <Typography variant="body2">Зібрано: {(campaign.saved ?? 0).toLocaleString()}₴</Typography>
           <LinearProgress variant="determinate" value={pct} sx={{ my: 1 }} />
           <Typography variant="body2" color="textSecondary">
             {pct}% зібрано
@@ -55,7 +55,7 @@ export default function DonationCard({ campaign, recommendation, etaDays }) {
       </CardContent>
       <Box sx={{ p: 2, pt: 0 }}>
         <Button variant="contained" fullWidth onClick={handleDonate}>
-          Задонатити {labelAmount.toLocaleString()}₴
+          Задонатити {(labelAmount ?? 0).toLocaleString()}₴
         </Button>
       </Box>
     </Card>
