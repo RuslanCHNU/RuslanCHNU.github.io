@@ -1,0 +1,28 @@
+# Byte‐compiled / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django:
+*.sqlite3
+/db.sqlite3
+/media/
+/staticfiles/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+venv/
+env/
+ENV/
+.venv/
+
+# IDEs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
