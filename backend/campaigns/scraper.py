@@ -164,3 +164,28 @@ def scrape_campaign(campaign: Campaign):
     finally:
         driver.quit()
     return campaign
+
+
+def scrape_saved_field(campaign: Campaign):
+    driver = _get_driver()
+    try:
+        url = campaign.external_url.lower()
+        if "monobank.ua" in url:
+            scrape_monobank(campaign, driver)
+        elif "prytulafoundation.org" in url:
+            scrape_prytulafoundation(campaign, driver)
+        elif "privat24.ua/env/donate" in url:
+            scrape_privat24(campaign, driver)
+        else:
+            driver.get(campaign.external_url)
+            time.sleep(3)
+            site = campaign.site
+
+
+            if site.selector_saved:
+                el = driver.find_element(By.CSS_SELECTOR, site.selector_saved)
+                campaign.saved = parse_uah_integer(text_before_currency(el))
+
+            campaign.save()
+    finally:
+        driver.quit()
