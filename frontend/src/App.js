@@ -1,4 +1,3 @@
-// frontend/src/App.js
 import React, { useState, useMemo } from "react";
 import {
   Box,
