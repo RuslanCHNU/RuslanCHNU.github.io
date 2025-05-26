@@ -160,6 +160,9 @@ def scrape_campaign(campaign: Campaign):
                     src = m.group(1) if m else src
                 campaign.image_url = src
 
+            if "tviykrok.com.ua" in url:
+                campaign.goal = campaign.saved + campaign.goal
+
             campaign.save()
     finally:
         driver.quit()
