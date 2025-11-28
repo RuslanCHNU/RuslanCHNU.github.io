@@ -31,7 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '192.168.0.103', 
+    '192.168.0.109', 
     'pleasing-flowing-muskrat.ngrok-free.app',    
     'ruslanchnu.github.io',
 ]
@@ -138,7 +138,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://192.168.0.103:3000',
+    'http://192.168.0.109:3000',
     'https://pleasing-flowing-muskrat.ngrok-free.app',
     'https://ruslanchnu.github.io',
  ]

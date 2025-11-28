@@ -1,4 +1,7 @@
 import React, { useState, useMemo } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import Button from "@mui/material/Button";
+
 import {
   Box,
   Typography,
@@ -90,23 +93,47 @@ export default function App() {
 
   return (
     <Box>
-      {/* Header background */}
       <Box
         sx={{
+          position: "relative",
           width: "100%",
           backgroundColor: theme.palette.primary.light,
           py: 2,
           mb: 2,
         }}
       >
-        <Typography
-          variant="h4"
-          align="center"
-          color="white"
-          sx={{ fontWeight: "bold" }}
+        <Box sx={{ textAlign: "center" }}>
+          <Typography variant="h4" color="white" sx={{ fontWeight: "700" }}>
+            Агрегатор зборів
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            position: "absolute",
+            right: 16,
+            top: "50%",
+            transform: "translateY(-50%)",
+          }}
         >
-          Агрегатор зборів
-        </Typography>
+          <Button
+            component={RouterLink}
+            to="/stats"
+            sx={{
+              backgroundColor: "transparent",
+              color: "rgba(255,255,255,0.9)",
+              boxShadow: "none",
+              textTransform: "none",
+              "&:hover": {
+                backgroundColor: "rgba(255,255,255,0.92)",
+                color: theme.palette.primary.main,
+                boxShadow: 3,
+              },
+            }}
+          >
+            Статистика
+          </Button>
+        </Box>
       </Box>
 
       <Box sx={{ px: 2 }}>

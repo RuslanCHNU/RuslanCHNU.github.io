@@ -19,6 +19,12 @@ env/
 ENV/
 .venv/
 
+# Node / React
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
 # IDEs / OS
 .vscode/
 .idea/

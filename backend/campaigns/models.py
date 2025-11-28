@@ -53,3 +53,26 @@ class Campaign(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.site.name})"
+
+
+
+from django.utils import timezone
+
+class CampaignSnapshot(models.Model):
+    campaign = models.ForeignKey(
+        'Campaign',
+        on_delete=models.CASCADE,
+        related_name='snapshots'
+    )
+    timestamp = models.DateTimeField(default=timezone.now, db_index=True)
+    saved = models.BigIntegerField()
+    goal = models.BigIntegerField()
+
+    class Meta:
+        ordering = ['-timestamp']
+        indexes = [
+            models.Index(fields=['campaign', 'timestamp']),
+        ]
+
+    def __str__(self):
+        return f"Snapshot(campaign={self.campaign_id}, saved={self.saved}, ts={self.timestamp.isoformat()})"
